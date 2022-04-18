@@ -56,3 +56,11 @@ router.delete('/:id', async (req, res) => {
 });
 
 // Get Post
+router.get('/:id', async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+    res.status(200).json(post);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
