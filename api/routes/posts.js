@@ -87,3 +87,4 @@ router.get('/', async (req, res) => {
     res.status(500).json(error);
   }
 });
+module.exports = router;
