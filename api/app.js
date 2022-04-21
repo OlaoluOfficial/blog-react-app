@@ -8,9 +8,25 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const postsRouter = require('./routes/posts');
 const authRouter = require('./routes/auth');
-
+const categoryRouter = require('./routes/categories');
+const multer = require('multer');
 
 const app = express();
+
+// Storage with multer
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, './uploads/');
+  },
+  filename: (req, file, cb) => {
+    cb(null, req.body.name);
+  }
+});
+const upload = multer({ storage: storage });
+
+app.post('/api/upload', upload.single('file'), (req, res) => {
+  res.status(200).json({ message: 'File uploaded' });
+})
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -26,6 +42,7 @@ app.use('/', indexRouter);
 app.use('/api/v1/users', usersRouter);
 app.use('/api/v1/posts', postsRouter);
 app.use('/api/v1/auth', authRouter);
+app.use('/api/v1/categories', categoryRouter);
 
 
 // catch 404 and forward to error handler
