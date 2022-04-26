@@ -20,13 +20,13 @@ const storage = multer.diskStorage({
   },
   filename: (req, file, cb) => {
     cb(null, req.body.name);
-  }
+  },
 });
 const upload = multer({ storage: storage });
 
 app.post('/api/upload', upload.single('file'), (req, res) => {
   res.status(200).json({ message: 'File uploaded' });
-})
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -39,19 +39,18 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/api/v1/users', usersRouter);
-app.use('/api/v1/posts', postsRouter);
-app.use('/api/v1/auth', authRouter);
-app.use('/api/v1/categories', categoryRouter);
-
+app.use('/api/users', usersRouter);
+app.use('/api/posts', postsRouter);
+app.use('/api/auth', authRouter);
+app.use('/api/categories', categoryRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
