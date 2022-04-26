@@ -5,20 +5,38 @@ import Settings from './pages/settings/Settings';
 import Home from './pages/home/Home';
 import Single from './pages/single/Single';
 import Write from './pages/write/Write';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom';
 
 function App() {
+  // const user = true;
   return (
     <Router>
       <TopBar />
-      <Switch>
-        <Route path="/">
-          <Home />
+      <Routes>
+        <Route index path="/" element={<Home />}>
+          {' '}
         </Route>
-        <Route path="/register">
-          <Register />
+        
+
+        <Route path="/register" element={<Register />}>
+          {/* {user ? <Home /> : <Register />} */}
         </Route>
-      </Switch>
+        <Route path="/login" element={<Login />}>
+          {/* {user ? <Home /> : <Login />} */}
+        </Route>
+        <Route path="/write" element={<Write />}>
+          {/* {user ? <Write /> : <Register />} */}
+        </Route>
+        <Route path="/settings" element={<Settings />}>
+          {/* {user ? <Settings /> : <Register />} */}
+        </Route>
+
+
+
+        <Route path="/post/:postId" element={<Single />}>
+          {' '}
+        </Route>
+      </Routes>
     </Router>
   );
 }
