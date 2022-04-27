@@ -8,34 +8,17 @@ import Write from './pages/write/Write';
 import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom';
 
 function App() {
-  // const user = true;
+  const user = true;
   return (
     <Router>
       <TopBar />
       <Routes>
-        <Route index path="/" element={<Home />}>
-          {' '}
-        </Route>
-        
-
-        <Route path="/register" element={<Register />}>
-          {/* {user ? <Home /> : <Register />} */}
-        </Route>
-        <Route path="/login" element={<Login />}>
-          {/* {user ? <Home /> : <Login />} */}
-        </Route>
-        <Route path="/write" element={<Write />}>
-          {/* {user ? <Write /> : <Register />} */}
-        </Route>
-        <Route path="/settings" element={<Settings />}>
-          {/* {user ? <Settings /> : <Register />} */}
-        </Route>
-
-
-
-        <Route path="/post/:postId" element={<Single />}>
-          {' '}
-        </Route>
+        <Route index path="/" element={<Home />} />
+        <Route path="/register" element={user ? <Home /> : <Register />} />
+        <Route path="/login" element={user ? <Home /> : <Login />} />
+        <Route path="/write" element={user ? <Write /> : <Register />} />
+        <Route path="/settings" element={user ? <Settings /> : <Register />} />
+        <Route path="/post/:postId" element={<Single />} />
       </Routes>
     </Router>
   );
