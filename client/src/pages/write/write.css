@@ -9,14 +9,17 @@
   border-radius: 10px;
   object-fit: cover;
 }
+
 .writeForm {
   position: relative;
 }
+
 .writeFormGroup {
   margin-left: 150px;
   display: flex;
   align-self: center;
 }
+
 .writeIcon{
   width: 25px;
   height: 25px;
@@ -36,13 +39,16 @@
   padding: 20px;
   width: 70vw;
 }
+
 .writeInput:focus {
   outline: none;
 }
+
 .writeText{
   font-size: 20px;
   height: 100vh;
 }
+
 .writeSubmit {
   position: absolute;
   top: 20px;
