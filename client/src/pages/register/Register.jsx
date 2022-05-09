@@ -8,7 +8,6 @@ export default function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
-  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,10 +21,8 @@ export default function Register() {
       res.data && window.location.replace('/login')
     } catch (error) {
       setError(true)
-      console.log(error);
     }
   };
-
   return (
     <div className="register">
       <span className="registerTitle">Register</span>
