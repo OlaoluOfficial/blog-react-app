@@ -12,22 +12,26 @@
   background-size: cover;
 }
 
-.lregisterTitle {
+.registerTitle {
   font-size: 50px;
 }
+
 .registerForm {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
 }
+
 .registerForm > label {
   margin: 10px 0;
 }
+
 .registerInput {
   padding: 10px;
   background-color: white;
   border: none;
 }
+
 .registerButton {
   margin-top: 20px;
   cursor: pointer;
@@ -37,6 +41,7 @@
   border-radius: 10px;
   padding: 10px;
 }
+
 .registerLoginButton {
   position: absolute;
   top: 60px;
@@ -47,5 +52,4 @@
   padding: 10px;
   color: white;
   border-radius: 10px;
-  
 }
